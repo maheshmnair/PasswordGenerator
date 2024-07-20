@@ -3,7 +3,7 @@ const sliderValue = document.getElementById("sliderValue");
 const passBox = document.getElementById("passwordBox");
 
 const lowercaseEl = document.getElementById("lowercase");
-const uppercseEl = document.getElementById("uppercase");
+const uppercaseEl = document.getElementById("uppercase");
 const numbersEl = document.getElementById("numbers");
 const symbolsEl = document.getElementById("symbols");
 
@@ -16,6 +16,8 @@ const lowercaseLetters = "abcdefghijklmnopqrstuvwxyz";
 const uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const numbers = "0123456789";
 const symbols = "!@#$%^&*()_+-=[]{}\\|;':\",./<>?";
+
+window.onload = generatePassword;
 
 sliderValue.textContent = inputSlider.value;
 inputSlider.addEventListener("input",()=>{
@@ -31,7 +33,7 @@ function generatePassword(){
     let password = "";
 
     characters += lowercaseEl.checked ? lowercaseLetters : "";
-    characters += uppercseEl.checked ? uppercaseLetters : "";
+    characters += uppercaseEl.checked ? uppercaseLetters : "";
     characters += numbersEl.checked ? numbers : "";
     characters += symbolsEl.checked ? symbols : "";
 
@@ -50,7 +52,6 @@ generateBtn.addEventListener("click",()=>{
 
 function updatePasswordIndicator(){
     const passwordStrength = getPasswordStrength(passBox.value);
-    console.log(passwordStrength);
     passIndicator.className = "password-indicator " + passwordStrength;
     console.log(passIndicator.className);
 }
@@ -59,7 +60,7 @@ function getPasswordStrength(password){
 
     if(password.length <=5){
         return "weak";
-    }else if (password.length <=11){
+    }else if (password.length <=10){
         return "medium";
     }else{
         return "strong";

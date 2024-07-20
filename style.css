@@ -126,7 +126,7 @@ input[type="range"]{
 }
 
 .password-indicator.weak::before{
-    width: 15%;
+    width: 20%;
     background-color: #e64a4a;
 }
 
